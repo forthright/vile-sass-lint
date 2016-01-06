@@ -1,5 +1,7 @@
 # vile-sass-lint
 
+[![Circle CI](https://circleci.com/gh/brentlintner/vile-sass-lint.svg?style=svg&circle-token=00d3226575f038a2187cfab343423bd9fd3804ec)](https://circleci.com/gh/brentlintner/vile-sass-lint)
+
 A [vile](http://github.com/brentlintner/vile) plugin for
 [sass-lint](https://github.com/sasstools/sass-lint).
 
