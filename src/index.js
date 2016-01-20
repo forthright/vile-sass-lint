@@ -29,15 +29,17 @@ let into_vile_issues = (offenses) =>
   _.flatten(
 		_.map(offenses, (offense) =>
 			_.map(offense.messages, (event) =>
-				vile.issue(
-					event.severity == 1 ? vile.WARNING : vile.ERROR,
-					offense.filePath,
-					`${event.message} (${event.ruleId})`,
-					{ line: event.line, character: event.column }
-				)
-			)
-		)
-  )
+				vile.issue({
+          type: event.severity == 1 ? vile.STYL : vile.ERR,
+					path: offense.filePath,
+					title: `${event.message} (${event.ruleId})`,
+					message: `${event.message} (${event.ruleId})`,
+          signature: `sass-lint::${event.ruleId}`,
+					where: {
+            start: { line: event.line, character: event.column }
+          }
+        })
+			)))
 
 let punish = (plugin_data) =>
   sass_lint(plugin_data.config)

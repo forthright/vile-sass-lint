@@ -5,8 +5,7 @@
   "main": "lib/index.js",
   "files": [
     "bin",
-    "lib",
-    "src"
+    "lib"
   ],
   "scripts": {
     "compile": "babel -d lib -m common src",
@@ -23,9 +22,9 @@
     "ruby"
   ],
   "dependencies": {
-    "@brentlintner/vile": "~0.4.1",
-    "bluebird": "~3.1.1",
-    "lodash": "~3.10.1",
+    "@brentlintner/vile": "^0.5.3",
+    "bluebird": "^3.1.1",
+    "lodash": "^3.10.1",
     "sass-lint": "^1.4.0"
   },
   "devDependencies": {
@@ -43,18 +42,17 @@
     "@brentlintner/vile-ncu": "0.0.4",
     "@brentlintner/vile-newline": "0.0.2",
     "@brentlintner/vile-nsp": "^0.1.0",
-    "@brentlintner/vile-project": "0.0.2",
     "@brentlintner/vile-semver": "0.0.2",
     "@brentlintner/vile-whitespace": "0.0.3",
-    "babel": "~5.8.34",
-    "chai": "~3.4.1",
+    "babel": "^5.8.34",
+    "chai": "^3.4.1",
     "chai-as-promised": "^5.2.0",
-    "coffee-script": "~1.10.0",
+    "coffee-script": "^1.10.0",
     "istanbul": "^0.4.1",
-    "mimus": "~0.1.2",
-    "mocha": "~2.3.4",
-    "release-it": "~2.3.1",
-    "sinon": "~1.17.2",
-    "sinon-chai": "~2.8.0"
+    "mimus": "^0.1.2",
+    "mocha": "^2.3.4",
+    "release-it": "^2.3.1",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0"
   }
 }
