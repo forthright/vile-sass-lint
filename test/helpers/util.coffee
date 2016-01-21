@@ -18,7 +18,7 @@ issues = [
     path: "app/assets/stylesheets/colors.sass",
     title: "Indentation of 0, expected 2 (indentation)",
     message: "Indentation of 0, expected 2 (indentation)",
-    type: "error",
+    type: "style",
     signature: "sass-lint::indentation",
     where: { start: { line: 21, character: 1 } }
   }
@@ -26,7 +26,7 @@ issues = [
     path: "app/assets/stylesheets/buttons.sass",
     title: "Indentation of 0, expected 2 (indentation)",
     message: "Indentation of 0, expected 2 (indentation)",
-    type: "error",
+    type: "style",
     signature: "sass-lint::indentation",
     where: { start: { line: 2, character: 1 } }
   }

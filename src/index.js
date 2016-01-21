@@ -30,7 +30,7 @@ let into_vile_issues = (offenses) =>
 		_.map(offenses, (offense) =>
 			_.map(offense.messages, (event) =>
 				vile.issue({
-          type: event.severity == 1 ? vile.STYL : vile.ERR,
+          type: vile.STYL,
 					path: offense.filePath,
 					title: `${event.message} (${event.ruleId})`,
 					message: `${event.message} (${event.ruleId})`,
