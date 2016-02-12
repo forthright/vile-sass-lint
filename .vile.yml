@@ -35,7 +35,7 @@ depcheck:
     ignore_dirs: []
     ignore_deps: [
         "sass-lint",
-        "@brentlintner/*"
+        "@forthright/*"
       ]
 
 license:

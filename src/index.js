@@ -1,6 +1,6 @@
 let path = require("path")
 let _ = require("lodash")
-let vile = require("@brentlintner/vile")
+let vile = require("@forthright/vile")
 
 // TODO: this won't work with npm v3
 const sass_lint_cli = path.normalize(path.join(
