@@ -13,7 +13,7 @@
     "dev": "bin/dev",
     "test": "bin/test",
     "test-cov": "bin/test-cov",
-    "vile": "vile -cpd --nodecorations"
+    "vile": "vile -csipd --nodecorations"
   },
   "keywords": [
     "vile",
@@ -22,7 +22,7 @@
     "ruby"
   ],
   "dependencies": {
-    "@forthright/vile": "^0.5.14",
+    "@forthright/vile": "~0.5.20",
     "bluebird": "^3.3.0",
     "lodash": "^3.10.1",
     "sass-lint": "^1.5.0"
