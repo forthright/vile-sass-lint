@@ -11,7 +11,9 @@ A [vile](https://vile.io) plugin for [sass-lint](https://github.com/sasstools/sa
 
 ## Installation
 
-    npm i --save-dev vile-sass-lint
+    npm i --save-dev sass-lint
+    npm i --save-dev @forthright/vile
+    npm i --save-dev @forthright/vile-sass-lint
 
 ## Config
 
@@ -30,7 +32,7 @@ You can ignore files in your `.sass-lint.yml` config file.
 
 ## Architecture
 
-SassLint provides a JSON CLI output that is currently used until an
+`sass-lint` provides a JSON CLI output that is currently used until an
 in library solution is implemented.
 
 - `bin` houses any shell based scripts
