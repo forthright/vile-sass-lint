@@ -1,6 +1,6 @@
 {
   "name": "@forthright/vile-sass-lint",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "A vile plugin for sass-lint",
   "main": "lib/index.js",
   "files": [
