@@ -13,7 +13,8 @@
     "dev": "bin/dev",
     "test": "bin/test",
     "test-cov": "bin/test-cov",
-    "vile": "vile p -usi --nodecorations"
+    "vile": "vile p -usi --nodecorations",
+    "release-it": "release-it"
   },
   "keywords": [
     "vile",
