@@ -6,9 +6,7 @@ util = require "./helpers/util"
 vile = mimus.get sass_lint, "vile"
 expect = chai.expect
 
-sass_cli = path.normalize(path.join(
-  __dirname, "..", "node_modules", ".bin", "sass-lint"
-))
+sass_cli = "sass-lint"
 
 # TODO: write integration tests for spawn -> cli
 # TODO: don't use setTimeout everywhere (for proper exception throwing)
