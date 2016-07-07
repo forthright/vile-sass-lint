@@ -64,3 +64,20 @@ describe "sass-lint", ->
                               config_path
                             ]
               done()
+
+    describe "with a custom allow list", ->
+      it "passes the list as sass-lint cli args", (done) ->
+        sass_lint
+          .punish allow: ["a", "b"]
+          .should.be.fulfilled.notify ->
+            setTimeout ->
+              vile.spawn.should.have.been
+                .calledWith sass_cli, args: [
+                              "-f"
+                              "json"
+                              "-v"
+                              "-q"
+                              "a"
+                              "b"
+                            ]
+              done()
