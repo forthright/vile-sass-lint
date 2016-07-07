@@ -7,13 +7,17 @@ const SASS_LINT = "sass-lint"
 let to_json = (string) =>
   _.attempt(JSON.parse.bind(null, string))
 
-let sass_lint = (custom_config_path) => {
+let sass_lint = (custom_config_path, allow_paths) => {
   let opts = {}
 
   opts.args = ["-f", "json", "-v", "-q"]
 
   if (custom_config_path) {
     opts.args = opts.args.concat("-c", custom_config_path)
+  }
+
+  if (!_.isEmpty(allow_paths)) {
+    opts.args = opts.args.concat(allow_paths)
   }
 
   return vile
@@ -37,9 +41,12 @@ let into_vile_issues = (offenses) =>
         })
 			)))
 
-let punish = (plugin_data) =>
-  sass_lint(_.get(plugin_data, "config"))
+let punish = (plugin_data) => {
+  let config_path = _.get(plugin_data, "config")
+  let allow = _.get(plugin_data, "allow", [])
+  return sass_lint(config_path, allow)
     .then(into_vile_issues)
+}
 
 module.exports = {
   punish: punish

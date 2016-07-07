@@ -30,6 +30,20 @@ sass-lint:
 
 You can ignore files in your `.sass-lint.yml` config file.
 
+## Allowing Files
+
+You can set `vile.allow` or `sass-lint.allow` and this plugin will honour it.
+
+Example:
+
+```yaml
+sass-lint:
+  allow:
+    - src
+```
+
+You can also still include files in your `.sass-lint.yml` config file.
+
 ## Architecture
 
 `sass-lint` provides a JSON CLI output that is currently used until an
