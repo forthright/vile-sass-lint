@@ -45,6 +45,7 @@ describe "sass-lint", ->
                               "-q"
                             ]
             done()
+      return
 
     describe "with a custom config path", ->
       it "passes the path as a sass-lint cli option", (done) ->
@@ -64,6 +65,7 @@ describe "sass-lint", ->
                               config_path
                             ]
               done()
+        return
 
     describe "with a custom allow list", ->
       it "passes the list as sass-lint cli args", (done) ->
@@ -81,3 +83,4 @@ describe "sass-lint", ->
                               "b"
                             ]
               done()
+        return
