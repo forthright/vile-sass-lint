@@ -22,7 +22,10 @@ let sass_lint = (custom_config_path, allow_paths) => {
 
   return vile
     .spawn(SASS_LINT, opts)
-    .then((stdout) => stdout ? to_json(stdout) : [])
+    .then((spawn_data) => {
+      let stdout = _.get(spawn_data, "stdout", "")
+      return stdout ? to_json(stdout) : []
+    })
 }
 
 let into_vile_issues = (offenses) =>

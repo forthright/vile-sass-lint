@@ -3,7 +3,11 @@ sass_lint_json = require "./../fixtures/sass-lint-json"
 
 setup = (vile) ->
   vile.spawn.returns new Promise (resolve) ->
-    resolve(JSON.stringify sass_lint_json)
+    resolve({
+      code: 0
+      stdout: JSON.stringify sass_lint_json
+      stderr: ""
+    })
 
 issues = [
   {

@@ -24,14 +24,14 @@
   ],
   "dependencies": {
     "bluebird": "^3.4.6",
-    "lodash": "^4.16.6"
+    "lodash": "^4.17.1"
   },
   "peerDependencies": {
-    "@forthright/vile": ">=0.10.2",
-    "sass-lint": "^1.10.0"
+    "@forthright/vile": ">=0.11.0",
+    "sass-lint": "github:brentlintner/sass-lint"
   },
   "devDependencies": {
-    "@forthright/vile": ">=0.10.2",
+    "@forthright/vile": ">=0.11.0",
     "@forthright/vile-coffeelint": ">=0.1.13",
     "@forthright/vile-comment": ">=0.1.16",
     "@forthright/vile-coverage": ">=0.2.13",
@@ -39,7 +39,7 @@
     "@forthright/vile-eclint": ">=0.1.9",
     "@forthright/vile-eslint": ">=0.1.12",
     "@forthright/vile-fs-lint": ">=0.3.8",
-    "@forthright/vile-git": "^0.4.2",
+    "@forthright/vile-git": "^0.5.0",
     "@forthright/vile-jshint": ">=0.2.11",
     "@forthright/vile-language": ">=0.1.11",
     "@forthright/vile-ncu": ">=0.1.17",
@@ -56,8 +56,8 @@
     "mimus": "^0.2.3",
     "mocha": "^3.1.2",
     "npm-check-updates": ">=2.8.6",
-    "release-it": "^2.4.3",
-    "sass-lint": "^1.10.0",
+    "release-it": "^2.5.0",
+    "sass-lint": "github:brentlintner/sass-lint",
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0"
   }
