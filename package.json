@@ -27,11 +27,11 @@
     "lodash": "^4.17.4"
   },
   "peerDependencies": {
-    "@forthright/vile": ">=0.12.0",
+    "@forthright/vile": ">=0.12.3",
     "sass-lint": "github:brentlintner/sass-lint"
   },
   "devDependencies": {
-    "@forthright/vile": ">=0.12.0",
+    "@forthright/vile": ">=0.12.3",
     "@forthright/vile-coffeelint": ">=0.1.14",
     "@forthright/vile-comment": ">=0.1.17",
     "@forthright/vile-coverage": ">=0.2.14",
