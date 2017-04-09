@@ -11,7 +11,7 @@ A [vile](https://vile.io) plugin for [sass-lint](https://github.com/sasstools/sa
 
 *until [this bug](https://github.com/sasstools/sass-lint/issues/955) is fixed upstream, use our fork:*
 
-    npm i -D git+https://git@github.com/brentlintner/sass-lint.git
+    npm i -D git+https://git@github.com/brentlintner/sass-lint.git#master
     npm i -D vile
     npm i -D vile-sass-lint
 
