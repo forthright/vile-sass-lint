@@ -28,7 +28,7 @@
   },
   "peerDependencies": {
     "@forthright/vile": ">=0.12.3",
-    "sass-lint": "github:brentlintner/sass-lint"
+    "sass-lint": "git+https://git@github.com/brentlintner/sass-lint.git"
   },
   "devDependencies": {
     "@forthright/vile": ">=0.12.3",
