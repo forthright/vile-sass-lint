@@ -1,6 +1,6 @@
 let path = require("path")
 let _ = require("lodash")
-let vile = require("@forthright/vile")
+let vile = require("vile")
 
 const SASS_LINT = "sass-lint"
 
