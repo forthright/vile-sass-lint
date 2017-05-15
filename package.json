@@ -1,6 +1,6 @@
 {
   "name": "vile-sass-lint",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "A vile plugin for sass-lint",
   "main": "lib/index.js",
   "files": [
