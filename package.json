@@ -39,7 +39,7 @@
   },
   "peerDependencies": {
     "vile": ">=0.13.0",
-    "sass-lint": "git+https://git@github.com/brentlintner/sass-lint.git#master"
+    "sass-lint": "github:brentlintner/sass-lint"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
