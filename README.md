@@ -32,12 +32,13 @@ You can ignore files in your `.sass-lint.yml` config file.
 
 You can set `vile.allow` or `sass-lint.allow` and this plugin will honour it.
 
-Example:
+Example (based on sass-lint's file pattern requirements):
 
 ```yaml
 sass-lint:
   allow:
-    - src
+    - "app/assets/stylesheets/**/*.s+(a|c)ss"
+    - "app/assets/stylesheets/*.s+(a|c)ss"
 ```
 
 You can also still include files in your `.sass-lint.yml` config file.
