@@ -1,23 +1,20 @@
-# vile-sass-lint [![Circle CI](https://circleci.com/gh/forthright/vile-sass-lint.svg?style=shield&circle-token=00d3226575f038a2187cfab343423bd9fd3804ec)](https://circleci.com/gh/forthright/vile-sass-lint) [![score-badge](https://vile.io/api/v0/projects/vile-sass-lint/badges/score?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-sass-lint) [![security-badge](https://vile.io/api/v0/projects/vile-sass-lint/badges/security?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-sass-lint) [![coverage-badge](https://vile.io/api/v0/projects/vile-sass-lint/badges/coverage?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-sass-lint) [![dependency-badge](https://vile.io/api/v0/projects/vile-sass-lint/badges/dependency?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-sass-lint)
+# vile-sass-lint [![Circle CI](https://circleci.com/gh/forthright/vile-sass-lint.svg?style=shield&circle-token=00d3226575f038a2187cfab343423bd9fd3804ec)](https://circleci.com/gh/forthright/vile-sass-lint) [![Build status](https://ci.appveyor.com/api/projects/status/4gppybgn8swb5ino/branch/master?svg=true)](https://ci.appveyor.com/project/brentlintner/vile-sass-lint/branch/master) [![score-badge](https://vile.io/api/v0/projects/vile-sass-lint/badges/score?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-sass-lint) [![coverage-badge](https://vile.io/api/v0/projects/vile-sass-lint/badges/coverage?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-sass-lint) [![dependency-badge](https://vile.io/api/v0/projects/vile-sass-lint/badges/dependency?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-sass-lint)
 
 A [vile](https://vile.io) plugin for [sass-lint](https://github.com/sasstools/sass-lint).
 
 ## Requirements
 
-- [nodejs](http://nodejs.org)
-- [npm](http://npmjs.org)
+- [NodeJS](http://nodejs.org)
 
 ## Installation
 
-*until [this bug](https://github.com/sasstools/sass-lint/issues/955) is fixed upstream, use our fork:*
-
-    npm i -D vile vile-sass-lint github:brentlintner/sass-lint
+    npm i -D vile vile-sass-lint
 
 ## Config
 
-The `sass-lint` cli should use a  `.sass-lint.yml` if it exists.
+The default `.sass-lint.yml` is used if it exists.
 
-You can specify a custom path as well:
+You can also specify a custom path:
 
 ```yaml
 sass-lint:
@@ -26,22 +23,26 @@ sass-lint:
 
 ## Ignoring Files
 
-You can ignore files in your `.sass-lint.yml` config file.
+You can set `vile.ignore` or `sass-lint.ignore`:
+
+```yaml
+sass-lint:
+  ignore:
+    - dir
+    - file.ts
+```
 
 ## Allowing Files
 
-You can set `vile.allow` or `sass-lint.allow` and this plugin will honour it.
+You can set `vile.allow` or `sass-lint.allow`:
 
-Example (based on sass-lint's file pattern requirements):
+Example:
 
 ```yaml
 sass-lint:
   allow:
-    - "app/assets/stylesheets/**/*.s+(a|c)ss"
-    - "app/assets/stylesheets/*.s+(a|c)ss"
+    - src
 ```
-
-You can also still include files in your `.sass-lint.yml` config file.
 
 ## Versioning
 
@@ -82,9 +83,6 @@ By participating in this project you agree to our [Code of Conduct](CODE_OF_COND
 
 ## Architecture
 
-`sass-lint` provides a JSON CLI output that is currently used until an
-in library solution is implemented.
-
 - `bin` houses any shell based scripts
 - `src` is es6+ syntax compiled with [babel](https://babeljs.io)
 - `lib` generated js library
@@ -93,5 +91,5 @@ in library solution is implemented.
 
     cd vile-sass-lint
     npm install
-    npm run dev
-    npm test
+    npm run -s compile
+    npm -s test

@@ -1,41 +1,164 @@
-Promise = require "bluebird"
-sass_lint_json = require "./../fixtures/sass-lint-json"
-
-setup = (vile) ->
-  vile.spawn.returns new Promise (resolve) ->
-    resolve({
-      code: 0
-      stdout: JSON.stringify sass_lint_json
-      stderr: ""
-    })
-
 issues = [
   {
-    path: "app/assets/stylesheets/colors.sass",
-    title: "A warning message (something)",
-    message: "A warning message (something)",
-    type: "style",
-    signature: "sass-lint::something",
-    where: { start: { line: 20, character: 3 } }
+    "message": "Expected `color`, found `margin` (property-sort-order)"
+    "path": "test.sass"
+    "signature": "sass-lint::property-sort-order"
+    "type": "style"
+    "where": {
+      "start": {
+        "character": 3
+        "line": 4
+      }
+    }
   }
   {
-    path: "app/assets/stylesheets/colors.sass",
-    title: "Indentation of 0, expected 2 (indentation)",
-    message: "Indentation of 0, expected 2 (indentation)",
-    type: "style",
-    signature: "sass-lint::indentation",
-    where: { start: { line: 21, character: 1 } }
+    "message": "Expected `margin`, found `color` (property-sort-order)"
+    "path": "test.sass"
+    "signature": "sass-lint::property-sort-order"
+    "type": "style"
+    "where": {
+      "start": {
+        "character": 3
+        "line": 5
+      }
+    }
   }
   {
-    path: "app/assets/stylesheets/buttons.sass",
-    title: "Indentation of 0, expected 2 (indentation)",
-    message: "Indentation of 0, expected 2 (indentation)",
-    type: "style",
-    signature: "sass-lint::indentation",
-    where: { start: { line: 2, character: 1 } }
+    "message": "!important not allowed (no-important)"
+    "path": "test.sass"
+    "signature": "sass-lint::no-important"
+    "type": "style"
+    "where": {
+      "start": {
+        "character": 15
+        "line": 5
+      }
+    }
+  }
+  {
+    "message": "Expected `color`, found `margin` (property-sort-order)"
+    "path": "test.scss"
+    "signature": "sass-lint::property-sort-order"
+    "type": "style"
+    "where": {
+      "start": {
+        "character": 3
+        "line": 4
+      }
+    }
+  }
+  {
+    "message": "Expected `margin`, found `color` (property-sort-order)"
+    "path": "test.scss"
+    "signature": "sass-lint::property-sort-order"
+    "type": "style"
+    "where": {
+      "start": {
+        "character": 3
+        "line": 5
+      }
+    }
+  }
+  {
+    "message": "!important not allowed (no-important)"
+    "path": "test.scss"
+    "signature": "sass-lint::no-important"
+    "type": "style"
+    "where": {
+      "start": {
+        "character": 15
+        "line": 5
+      }
+    }
+  }
+  {
+    "message": "Please check validity of the block
+    starting from line #1 (Fatal)"
+    "path": "test_two.sass"
+    "signature": "sass-lint::Fatal"
+    "type": "maintainability"
+    "where": {
+      "start": {
+        "character": 1
+        "line": 1
+      }
+    }
+  }
+]
+
+issues_allow = [
+  {
+    "message": "Expected `color`, found `margin` (property-sort-order)"
+    "path": "test.sass"
+    "signature": "sass-lint::property-sort-order"
+    "type": "style"
+    "where": {
+      "start": {
+        "character": 3
+        "line": 4
+      }
+    }
+  }
+  {
+    "message": "Expected `margin`, found `color` (property-sort-order)"
+    "path": "test.sass"
+    "signature": "sass-lint::property-sort-order"
+    "type": "style"
+    "where": {
+      "start": {
+        "character": 3
+        "line": 5
+      }
+    }
+  }
+  {
+    "message": "!important not allowed (no-important)"
+    "path": "test.sass"
+    "signature": "sass-lint::no-important"
+    "type": "style"
+    "where": {
+      "start": {
+        "character": 15
+        "line": 5
+      }
+    }
+  }
+]
+
+issues_ignore = [
+  {
+    "message": "Please check validity of the block
+    starting from line #1 (Fatal)"
+    "path": "test_two.sass"
+    "signature": "sass-lint::Fatal"
+    "type": "maintainability"
+    "where": {
+      "start": {
+        "character": 1
+        "line": 1
+      }
+    }
+  }
+]
+
+issues_custom_conf = [
+  {
+    "message": "Please check validity of the block starting
+    from line #1 (Fatal)"
+    "path": "test_two.sass"
+    "signature": "sass-lint::Fatal"
+    "type": "maintainability"
+    "where": {
+      "start": {
+        "character": 1
+        "line": 1
+      }
+    }
   }
 ]
 
 module.exports =
   issues: issues
-  setup: setup
+  issues_allow: issues_allow
+  issues_ignore: issues_ignore
+  issues_custom_conf: issues_custom_conf

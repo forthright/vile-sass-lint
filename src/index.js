@@ -1,54 +1,58 @@
-let path = require("path")
-let _ = require("lodash")
-let vile = require("vile")
+const path = require("path")
+const sass_lint = require("sass-lint")
+const _ = require("lodash")
+const vile = require("vile")
 
-const SASS_LINT = "sass-lint"
+const IS_SASS = /\.(sass|scss)$/
 
-let to_json = (string) =>
-  _.attempt(JSON.parse.bind(null, string))
+const is_sass_file = (target, is_dir) =>
+  is_dir || IS_SASS.test(target)
 
-let sass_lint = (custom_config_path, allow_paths) => {
-  let opts = {}
-
-  opts.args = ["-f", "json", "-v", "-q"]
-
-  if (custom_config_path) {
-    opts.args = opts.args.concat("-c", custom_config_path)
-  }
-
-  if (!_.isEmpty(allow_paths)) {
-    opts.args = opts.args.concat(allow_paths)
-  }
-
-  return vile
-    .spawn(SASS_LINT, opts)
-    .then((spawn_data) => {
-      let stdout = _.get(spawn_data, "stdout", "")
-      return stdout ? to_json(stdout) : []
-    })
+const allowed = (ignore, allow) => {
+  var filtered = vile.filter(ignore, allow)
+  return (target, is_dir) =>
+    filtered(target) && is_sass_file(target, is_dir)
 }
 
-let into_vile_issues = (offenses) =>
-  _.flatten(
-		_.map(offenses, (offense) =>
-			_.map(offense.messages, (event) =>
-				vile.issue({
-          type: vile.STYL,
-					path: offense.filePath,
-					title: `${event.message} (${event.ruleId})`,
-					message: `${event.message} (${event.ruleId})`,
-          signature: `sass-lint::${event.ruleId}`,
-					where: {
-            start: { line: event.line, character: event.column }
+const lint = (filepath, filedata, conf_path) => {
+  const opts = {
+    text: filedata,
+    format: path.extname(filepath).replace(".", ""),
+    filename: filepath
+  }
+  const result = sass_lint.lintText(opts, {}, conf_path)
+  return _.get(result, "messages", [])
+}
+
+const into_issues = (conf_path) => (filepath, filedata) => {
+  const offenses = lint(filepath, filedata, conf_path)
+
+  return _.flatten(
+    _.map(offenses, (offense) => {
+        return vile.issue({
+          type: offense.severity === 1 ? vile.STYL : vile.MAIN,
+          path: filepath,
+          message: `${offense.message} (${offense.ruleId})`,
+          signature: `sass-lint::${offense.ruleId}`,
+          where: {
+            start: {
+              line: offense.line,
+              character: offense.column
+            }
           }
         })
-			)))
+    }))
+}
 
-let punish = (plugin_data) => {
-  let config_path = _.get(plugin_data, "config")
-  let allow = _.get(plugin_data, "allow", [])
-  return sass_lint(config_path, allow)
-    .then(into_vile_issues)
+const punish = (plugin_config) => {
+  const ignore = _.get(plugin_config, "ignore")
+  const allow = _.get(plugin_config, "allow")
+  const conf_path = _.get(plugin_config, "config")
+
+  return vile.promise_each(
+    process.cwd(),
+    allowed(ignore, allow),
+    into_issues(conf_path))
 }
 
 module.exports = {

@@ -1,58 +1,36 @@
 vile:
   ignore:
+    - bin
     - LICENSE
     - appveyor.yml
     - coverage
     - coffeelint.json
-    - .ackrc
     - .babelrc
-    - .build
     - .npmignore
     - .travis.yml
-    - .vim.custom
     - node_modules
+    - .nyc_output
     - lib
     - tags
-    - .test
-    - .ctags
     - .git
+    - .gitattributes
     - circle.yml
     - .editorconfig
     - .eslintignore
     - .eslintrc
     - .gitignore
     - .npmrc
-    - tags
-    - tmp
-    - tsconfig.json
-    - tslint.json
-    - tsd.json
-    - "/lib"
-    - vendor
     - README.md
-    - typings
     - .vile.yml
 
 depcheck:
   config:
-    ignore_dev_deps: false
+    ignore_dev_deps: true
     ignore_dirs:
       - src
-      - typings
+      - test
       - node_modules
       - coverage
-      - tmp
-    ignore_deps:
-      - mocha
-      - babel-cli
-      - coffee-script
-      - istanbul
-      - release-it
-      - typescript
-      - wrench
-      - pryjs
-      - shelljs
-      - "vile-**"
 
 coverage:
   config:
