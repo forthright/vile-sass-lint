@@ -1,0 +1,39 @@
+version: "#{build}"
+
+os: Visual Studio 2017
+
+cache:
+  - node_modules
+
+environment:
+  matrix:
+    - nodejs_version: 6
+    - nodejs_version: 8
+
+platform:
+  - x64
+
+matrix:
+  fast_finish: true
+
+init:
+  - git config --global core.autocrlf input
+
+branches:
+  only:
+    - master
+
+skip_tags: true
+
+clone_depth: 25
+
+build: off
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - ver && node --version && npm --version
+  - npm install
+
+test_script:
+  - npm run -s compile
+  - npm run -s test
