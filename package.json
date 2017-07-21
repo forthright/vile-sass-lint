@@ -1,7 +1,7 @@
 {
   "name": "vile-sass-lint",
   "version": "0.4.0",
-  "description": "A vile plugin for sass-lint",
+  "description": "Identify common style and maintainability issues in your Sass files.",
   "main": "lib/index.js",
   "files": [
     "lib",

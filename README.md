@@ -1,10 +1,11 @@
 # vile-sass-lint [![Circle CI](https://circleci.com/gh/forthright/vile-sass-lint.svg?style=shield&circle-token=00d3226575f038a2187cfab343423bd9fd3804ec)](https://circleci.com/gh/forthright/vile-sass-lint) [![Build status](https://ci.appveyor.com/api/projects/status/4gppybgn8swb5ino/branch/master?svg=true)](https://ci.appveyor.com/project/brentlintner/vile-sass-lint/branch/master) [![score-badge](https://vile.io/api/v0/projects/vile-sass-lint/badges/score?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-sass-lint) [![coverage-badge](https://vile.io/api/v0/projects/vile-sass-lint/badges/coverage?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-sass-lint) [![dependency-badge](https://vile.io/api/v0/projects/vile-sass-lint/badges/dependency?token=USryyHar5xQs7cBjNUdZ)](https://vile.io/~brentlintner/vile-sass-lint)
 
-A [vile](https://vile.io) plugin for [sass-lint](https://github.com/sasstools/sass-lint).
+A [Vile](https://vile.io) plugin for identifying common style and
+maintainability issues in your Sass files (via [sass-lint](https://github.com/sasstools/sass-lint)).
 
 ## Requirements
 
-- [NodeJS](http://nodejs.org)
+- [Node.js](http://nodejs.org)
 
 ## Installation
 
@@ -46,7 +47,7 @@ sass-lint:
 
 ## Versioning
 
-This project ascribes to [semantic versioning](http://semver.org).
+This project uses [Semver](http://semver.org).
 
 ## Licensing
 
@@ -73,8 +74,6 @@ Even if you are uncomfortable with code, an issue or question is welcome.
 
 ### Code Of Conduct
 
-This project ascribes to [contributor-covenant.org](http://contributor-covenant.org).
-
 By participating in this project you agree to our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ### Maintainers
@@ -84,10 +83,10 @@ By participating in this project you agree to our [Code of Conduct](CODE_OF_COND
 ## Architecture
 
 - `bin` houses any shell based scripts
-- `src` is es6+ syntax compiled with [babel](https://babeljs.io)
+- `src` is es6+ syntax compiled with [Babel](https://babeljs.io)
 - `lib` generated js library
 
-## Hacking
+## Developing
 
     cd vile-sass-lint
     npm install
