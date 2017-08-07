@@ -27,7 +27,3 @@ depcheck:
       - test
       - node_modules
       - coverage
-
-coverage:
-  config:
-    path: coverage/lcov.info
